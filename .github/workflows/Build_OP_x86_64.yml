@@ -95,7 +95,10 @@ jobs:
   
     - name: Move luci-app-directory3
       run: mv ./luci-app-vssr ./openwrt/package/lean
-      
+    
+    - name: Delete old theme
+      run: rm -rf ./openwrt/package/lean/luci-theme-argon
+        
     - name: Move luci-app-directory4
       run: mv ./luci-theme-argon ./openwrt/package/lean
 
