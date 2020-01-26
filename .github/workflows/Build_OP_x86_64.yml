@@ -81,6 +81,12 @@ jobs:
         REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH  
     
+    - name: Clone source code luci-app-vssr
+      env: 
+        REPO_URL: https://github.com/LinusJun/luci-theme-argon
+        REPO_BRANCH: master
+      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH
+          
     - name: Move luci-app-directory
       run: mv ./openclash/luci-app-openclash ./openwrt/package/lean
   
@@ -89,6 +95,9 @@ jobs:
   
     - name: Move luci-app-directory3
       run: mv ./luci-app-vssr ./openwrt/package/lean
+      
+    - name: Move luci-app-directory4
+      run: mv ./luci-theme-argon ./openwrt/package/lean
 
     - name: Update & Install feeds
       working-directory: ./openwrt
